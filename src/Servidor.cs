@@ -8,10 +8,24 @@ namespace STT.TCP
 {
     public class ServidorTCP
     {
+        /// <summary>
+        /// Data Recived Event Handler
+        /// </summary>
+        /// <param name="e">Mensaje recibido</param>
         public delegate void DataReceivedEventHandler(string e);
+        /// <summary>
+        /// Evento que se dispara al recibir datos
+        /// </summary>
         public event DataReceivedEventHandler DataReceived;
 
+        /// <summary>
+        /// State Event Handler
+        /// </summary>
+        /// <param name="state">state</param>
         public delegate void ServidorTCPConnectionStateHandler(bool state);
+        /// <summary>
+        /// Evento que se dispara cuando la conexion cambia de estado
+        /// </summary>
         public event ServidorTCPConnectionStateHandler Connected;
 
         TcpClient m_Client;
@@ -28,22 +42,14 @@ namespace STT.TCP
 
         private void OnDataRecived(string e)
         {
-            DataReceivedEventHandler handler = DataReceived;
-            if (handler != null)
-            {
-                handler(e);
-            }
+            DataReceived?.Invoke(e);
         }
         private void ChangeState(bool state)
         {
             if (state != m_connected)
             {
                 m_connected = state;
-                ServidorTCPConnectionStateHandler handler = Connected;
-                if (handler != null)
-                {
-                    handler(state);
-                }
+                Connected?.Invoke(state);
             }
         }
         private bool _Conectar()
@@ -93,6 +99,11 @@ namespace STT.TCP
                 }
             }
         }
+        /// <summary>
+        /// Inicia la escucha de un puerto
+        /// </summary>
+        /// <param name="port">Puerto a escuchar</param>
+        /// <returns></returns>
         public bool Escuchar(int port)
         {
             try
@@ -106,6 +117,10 @@ namespace STT.TCP
                 return false;
             }
         }
+        /// <summary>
+        /// Desconecta el socket
+        /// </summary>
+        /// <returns></returns>
         public bool Desconectar()
         {
             try
@@ -126,6 +141,11 @@ namespace STT.TCP
                 return false;
             }
         }
+        /// <summary>
+        /// Envia un mensaje
+        /// </summary>
+        /// <param name="mensaje">Mensaje</param>
+        /// <returns></returns>
         public bool Enviar(string mensaje)
         {
             try
@@ -144,6 +164,10 @@ namespace STT.TCP
                 return false;
             }
         }
+        /// <summary>
+        /// Esta conectado?
+        /// </summary>
+        /// <returns></returns>
         public bool IsConnected() { return m_connected; }
 
     }
