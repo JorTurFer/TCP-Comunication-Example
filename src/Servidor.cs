@@ -169,7 +169,6 @@ namespace TCP
         /// </summary>
         /// <returns></returns>
         public bool IsConnected() { return m_connected; }
-
     }
 }
 

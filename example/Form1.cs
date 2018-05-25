@@ -43,7 +43,6 @@ namespace Test_TCP.dll
             txt_servidor_recibido.ScrollToCaret();
         }
         #endregion
-
         #region Metodos Cliente
         private void btn_cliente_conectar_Click(object sender, EventArgs e)
         {
@@ -69,7 +68,6 @@ namespace Test_TCP.dll
                     {
                         MessageBox.Show("NO SE HA PODIDO CONECTAR");
                     }
-
                 }
             }
         }
@@ -84,7 +82,6 @@ namespace Test_TCP.dll
                 string strRecibido = string.Format("{0} Cliente-> {1}\r\n", DateTime.Now.ToString("HH:mm:ss"), txt_cliente_enviar.Text);
                 txt_cliente_recibido.BeginInvoke(new MethodInvoker(delegate { txt_cliente_recibido.Text += strRecibido; }));
             }
-
         }
         private void OnDataReceivedCliente(string e)
         {
@@ -106,7 +103,6 @@ namespace Test_TCP.dll
             }
         }
         #endregion
-
         #region Metodos Servidor
         private void btn_servidor_escuchar_Click(object sender, EventArgs e)
         {
@@ -127,7 +123,6 @@ namespace Test_TCP.dll
                         string strRecibido = string.Format("{0} Servidor-> {1}\r\n", DateTime.Now.ToString("HH:mm:ss"), "Escuchando...");
                         txt_servidor_recibido.BeginInvoke(new MethodInvoker(delegate { txt_servidor_recibido.Text += strRecibido; }));
                     }
-
                 }
             }
         }
@@ -161,8 +156,6 @@ namespace Test_TCP.dll
                 txt_servidor_recibido.BeginInvoke(new MethodInvoker(delegate { txt_servidor_recibido.Text += strRecibido; }));
             }
         }
-        #endregion
-
-       
+        #endregion       
     }
 }

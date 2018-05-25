@@ -52,7 +52,6 @@ namespace TCP
                 Connected?.Invoke(state);
             }
         }
-
         private bool _Conectar()
         {
             m_Client = new TcpClient();          
@@ -90,7 +89,6 @@ namespace TCP
                 }
             }
         }
-
         /// <summary>
         /// Conectarse
         /// </summary>
@@ -133,7 +131,6 @@ namespace TCP
             {
                 return false;
             }
-
         }
         /// <summary>
         /// Envia un mensaje
@@ -164,6 +161,5 @@ namespace TCP
         /// </summary>
         /// <returns></returns>
         public bool IsConnected() { return m_connected; }
-
     }
 }
