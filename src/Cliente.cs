@@ -27,8 +27,7 @@ namespace TCP
         /// Evento que se dispara cuando la conexion cambia de estado
         /// </summary>
         public event ClienteTCPConnectionStateHandler Connected;
-
-
+    
         TcpClient m_Client;
         NetworkStream m_netStream;
         StreamReader m_redStream;
@@ -117,10 +116,10 @@ namespace TCP
         {           
             try
             {
-                ChangeState(false);            
-                m_eventdesconectar.Set();
+                ChangeState(false);    
                 m_threadRecibir.Abort();
                 m_threadRecibir = null;
+                m_eventdesconectar.Set();                
                 m_Client.Close();
                 m_netStream.Close();
                 m_redStream.Close();

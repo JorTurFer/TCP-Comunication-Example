@@ -62,7 +62,6 @@ namespace Test_TCP.dll
                     {
                         string strRecibido = string.Format("{0} Cliente-> {1}\r\n", DateTime.Now.ToString("HH:mm:ss"), "Conectado");
                         txt_cliente_recibido.BeginInvoke(new MethodInvoker(delegate { txt_cliente_recibido.Text += strRecibido; }));
-
                     }
                     else
                     {
