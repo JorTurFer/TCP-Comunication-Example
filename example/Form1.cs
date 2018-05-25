@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using STT.TCP;
+using TCP;
 
 namespace Test_TCP.dll
 {

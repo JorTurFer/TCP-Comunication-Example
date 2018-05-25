@@ -4,7 +4,7 @@ using System.Threading;
 using System.IO;
 using System.Net.Sockets;
 
-namespace STT.TCP
+namespace TCP
 {
     public class ServidorTCP
     {
